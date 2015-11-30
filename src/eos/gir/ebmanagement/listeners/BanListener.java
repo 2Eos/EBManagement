@@ -1,8 +1,9 @@
 package eos.gir.ebmanagement.listeners;
 
 import eos.gir.ebmanagement.core;
+import org.bukkit.event.Listener;
 
-public class BanListener {
+public class BanListener implements Listener {
     private final core plugin;
 
     public BanListener(core plugin) {
