@@ -14,6 +14,11 @@ public class core extends JavaPlugin {
     }
 
     public void onEnable() {
-        initialize();
+        yamlFile.createYAML();
+        try {
+            initialize();
+        } catch (Exception e) {
+
+        }
     }
 }
