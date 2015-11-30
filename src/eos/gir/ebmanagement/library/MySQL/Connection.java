@@ -97,6 +97,4 @@ public class Connection {
     }
 
 
-    public void test(){}
-
 }
