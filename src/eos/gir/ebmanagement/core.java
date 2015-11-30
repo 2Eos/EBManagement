@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class core extends JavaPlugin {
 
-    private YamlStorage yamlFile;
+    public YamlStorage yamlFile;
 
     public core(){}
 
