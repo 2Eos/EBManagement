@@ -1,6 +1,8 @@
-package eos.gir.ebmanagement.library.MySQL;
+package eos.gir.ebmanagement.storage.mysql;
 
 import eos.gir.ebmanagement.core;
+import eos.gir.ebmanagement.library.MySQL.MySQL;
+import eos.gir.ebmanagement.library.MySQL.SQLTable;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -8,22 +10,22 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Connection {
+public class MySQLStorage {
 
     private final core plugin;
 
 
-    private String dbhost;
-    private String dbport;
-    private String dbuser;
-    private String dbpass;
-    private String dbname;
+     String dbhost;
+     String dbport;
+     String dbuser;
+     String dbpass;
+     String dbname;
 
     public MySQL sql;
     public java.sql.Connection c;
     public Statement statement;
 
-    public Connection(core plugin) {
+    public MySQLStorage(core plugin) {
         this.plugin = plugin;
         dbhost = plugin.yamlFile.grabYAML().getString(plugin.yamlFile.path + ".Database.Host");
         dbport = plugin.yamlFile.grabYAML().getString(plugin.yamlFile.path + ".Database.Port");
