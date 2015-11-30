@@ -13,7 +13,7 @@ public class YamlStorage {
     public File file;
     public String path;
     FileConfiguration load;
-    
+
     public YamlStorage(core plugin) {
         this.plugin = plugin;
         file = new File(plugin.getDataFolder(), "config.yml");
