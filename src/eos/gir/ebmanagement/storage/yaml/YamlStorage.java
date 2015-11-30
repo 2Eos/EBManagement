@@ -10,6 +10,10 @@ import java.util.List;
 
 public class YamlStorage {
 
+    /*
+    YAML STORAGE IS NOT A PLACE TO STORAGE USER DATA; EVERYTHING MUST BE LOGGED VIA MYSQL AT THE MOMENT
+     */
+
     core plugin;
 
     public File file;
