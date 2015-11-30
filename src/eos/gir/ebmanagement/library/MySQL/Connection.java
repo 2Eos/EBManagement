@@ -40,41 +40,43 @@ public class Connection {
     }
 
     public void generateMySQLTables() {
-        try {
-            DatabaseMetaData dbm = c.getMetaData();
-            ResultSet nextable = dbm.getTables(null, null, "%", null);
-            statement = sql.getConnection().createStatement();
+        if ( plugin.yamlFile.grabYAML().getString(plugin.yamlFile.path + ".Type").equalsIgnoreCase("MySQL") ) {
+            try {
+                DatabaseMetaData dbm = c.getMetaData();
+                ResultSet nextable = dbm.getTables(null, null, "%", null);
+                statement = sql.getConnection().createStatement();
 
-            sql.openConnection();
+                sql.openConnection();
 
-            if ( nextable.next() ) {
-                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[EBManagement] Loaded the following tables: " +
-                        SQLTable.TABLE_PROFILE + ", " +
-                        SQLTable.TABLE_BANS + ", " +
-                        SQLTable.TABLE_MUTES + ", " +
-                        SQLTable.TABLE_TEMPBANS + ", " +
-                        SQLTable.TABLE_IPS);
-            } else {
-                Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "[EBManagement] Created the following tables: " +
-                        SQLTable.TABLE_PROFILE + ", " +
-                        SQLTable.TABLE_BANS + ", " +
-                        SQLTable.TABLE_MUTES + ", " +
-                        SQLTable.TABLE_TEMPBANS + ", " +
-                        SQLTable.TABLE_IPS);
+                if (nextable.next()) {
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[EBManagement] Loaded the following tables: " +
+                            SQLTable.TABLE_PROFILE + ", " +
+                            SQLTable.TABLE_BANS + ", " +
+                            SQLTable.TABLE_MUTES + ", " +
+                            SQLTable.TABLE_TEMPBANS + ", " +
+                            SQLTable.TABLE_IPS);
+                } else {
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "[EBManagement] Created the following tables: " +
+                            SQLTable.TABLE_PROFILE + ", " +
+                            SQLTable.TABLE_BANS + ", " +
+                            SQLTable.TABLE_MUTES + ", " +
+                            SQLTable.TABLE_TEMPBANS + ", " +
+                            SQLTable.TABLE_IPS);
 
-                statement.execute(SQLTable.TABLE_QUERY_PROFILE);
-                statement.execute(SQLTable.TABLE_QUERY_BANS);
-                statement.execute(SQLTable.TABLE_QUERY_MUTES);
-                statement.execute(SQLTable.TABLE_QUERY_TEMPBANS);
-                statement.execute(SQLTable.TABLE_QUERY_IPS);
+                    statement.execute(SQLTable.TABLE_QUERY_PROFILE);
+                    statement.execute(SQLTable.TABLE_QUERY_BANS);
+                    statement.execute(SQLTable.TABLE_QUERY_MUTES);
+                    statement.execute(SQLTable.TABLE_QUERY_TEMPBANS);
+                    statement.execute(SQLTable.TABLE_QUERY_IPS);
 
-                statement.close();
-                sql.closeConnection();
+                    statement.close();
+                    sql.closeConnection();
+
+                }
+
+            } catch (Exception e) {
 
             }
-
-        }   catch (Exception e) {
-
         }
     }
 
