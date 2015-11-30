@@ -9,4 +9,8 @@ public class core extends JavaPlugin {
     public void onEnable() {
 
     }
+
+    public void onDisable() {
+
+    }
 }
