@@ -80,5 +80,21 @@ public class Connection {
         }
     }
 
+    public void openConnection() {
+        try {
+            sql.openConnection();
+        }   catch (Exception e) {
+
+        }
+    }
+
+    public void closeConnection() {
+        try {
+            sql.closeConnection();
+        }   catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
