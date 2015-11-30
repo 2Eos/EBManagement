@@ -61,7 +61,7 @@ public abstract class Database {
     /**
      * Gets the connection with the database
      *
-     * @return Connection with the database, null if none
+     * @return MySQLStorage with the database, null if none
      */
     public Connection getConnection() {
         return connection;
