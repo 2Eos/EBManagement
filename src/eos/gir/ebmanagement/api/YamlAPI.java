@@ -19,7 +19,4 @@ public class YamlAPI {
         core.yamlFile.saveYAML();
     }
 
-    public static void checkYAML() {
-
-    }
 }
