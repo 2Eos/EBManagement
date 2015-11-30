@@ -1,10 +1,12 @@
 package eos.gir.ebmanagement.storage;
 
 import eos.gir.ebmanagement.core;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.util.List;
 
 public class YamlStorage {
 
@@ -49,11 +51,38 @@ public class YamlStorage {
                 load.load(file);
             }   catch (Exception e) {
                 e.printStackTrace();
+
             }
         } else {
             createYAML();
         }
     }
 
+    public void setYAML(String pathto, int value) {
+        load.set(path + "." + pathto, value);
+    }
+    public void setYAML(String pathto, String value) {
+        load.set(path + "." + pathto, value);
+    }
+
+    public Integer getIntYAML(String pathto){
+        return load.getInt(path + pathto);
+    }
+
+    public String getStringYAML(String pathto){
+        return load.getString(path + pathto);
+    }
+
+    public ConfigurationSection getSectionYAML(String pathto){
+        return load.getConfigurationSection(path + pathto);
+    }
+
+    public List<String> getStringListYAML(String pathto){
+        return load.getStringList(path + pathto);
+    }
+
+    public List getListYAML(String pathto){
+        return load.getList(path + pathto);
+    }
 
 }
