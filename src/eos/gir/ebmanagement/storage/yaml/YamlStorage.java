@@ -1,4 +1,4 @@
-package eos.gir.ebmanagement.storage;
+package eos.gir.ebmanagement.storage.yaml;
 
 import eos.gir.ebmanagement.core;
 import org.bukkit.configuration.ConfigurationSection;
@@ -79,6 +79,7 @@ public class YamlStorage {
 
     public List<String> getStringListYAML(String pathto){
         return load.getStringList(path + pathto);
+
     }
 
     public List getListYAML(String pathto){
