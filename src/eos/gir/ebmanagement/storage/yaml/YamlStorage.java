@@ -81,10 +81,7 @@ public class YamlStorage {
         return load.getConfigurationSection(path + pathto);
     }
 
-    public List<String> getStringListYAML(String pathto){
-        return load.getStringList(path + pathto);
-
-    }
+    public List<String> getStringListYAML(String pathto){ return load.getStringList(path + pathto); }
 
     public List getListYAML(String pathto){
         return load.getList(path + pathto);
