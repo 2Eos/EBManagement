@@ -17,7 +17,7 @@ public enum StorageType {
             return MYSQL;
         }
 
-        if ( typename.equalsIgnoreCase("SQLITE") ) {
+        if ( typename.equalsIgnoreCase("SQLite") ) {
             return SQLITE;
         }
 
