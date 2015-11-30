@@ -41,6 +41,7 @@ public class Connection {
     }
 
     public void generateMySQLTables() {
+        if (plugin.yamlFile.getStringYAML(".Database.Type").equalsIgnoreCase("MySQL")) {
             try {
                 DatabaseMetaData dbm = c.getMetaData();
                 ResultSet nextable = dbm.getTables(null, null, "%", null);
@@ -78,6 +79,7 @@ public class Connection {
             } catch (Exception e) {
             }
         }
+    }
 
     public void openConnection() {
         try {
