@@ -7,12 +7,11 @@ public class core extends JavaPlugin {
 
     public YamlStorage yamlFile;
 
+    public core(){}
+
     public void initialize(){
         yamlFile = new YamlStorage(this);
     }
-
-
-    public core(){}
 
     public void onEnable() {
         try {
