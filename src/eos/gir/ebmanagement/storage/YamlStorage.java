@@ -14,7 +14,6 @@ public class YamlStorage {
     public String path;
     FileConfiguration load;
 
-
     public YamlStorage(core plugin) {
         this.plugin = plugin;
         file = new File(plugin.getDataFolder(), "config.yml");
