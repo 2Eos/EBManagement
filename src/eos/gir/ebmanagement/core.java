@@ -10,7 +10,7 @@ public class core extends JavaPlugin {
     public CommandFramework framework;
 
 
-    public core(){}
+
 
     public void initialize(){
         yamlFile = new YamlStorage(this);
