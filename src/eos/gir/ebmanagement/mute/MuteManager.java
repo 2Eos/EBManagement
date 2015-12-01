@@ -1,11 +1,10 @@
 package eos.gir.ebmanagement.mute;
 
-import eos.gir.ebmanagement.ban.Ban;
 import org.bukkit.OfflinePlayer;
 
 public class MuteManager {
     private MuteManager() {}
-    public static void createPermMute(OfflinePlayer player, String reason, boolean logged,boolean canUseCommand) {
+    public static void createPermMute(OfflinePlayer player, String reason, boolean logged, boolean canUseCommand) {
         Mute mute = new Mute(player.getUniqueId(), player.getName());
         if(!canUseCommand){
             mute.blockCommands(true);
