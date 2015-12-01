@@ -44,4 +44,7 @@ public class Ban {
         this.logged = logged;
     }
 
+    public Boolean getBan() { return permban; }
+    public String getReason() { return reason; }
+
 }
