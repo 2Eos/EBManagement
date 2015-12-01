@@ -14,7 +14,6 @@ public class MySQLStorage {
 
     private final core plugin;
 
-
      String dbhost;
      String dbport;
      String dbuser;
@@ -99,5 +98,9 @@ public class MySQLStorage {
         }
     }
 
+
+    public void generateProfile() {
+
+    }
 
 }
