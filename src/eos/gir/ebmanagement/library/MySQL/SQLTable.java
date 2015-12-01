@@ -19,8 +19,10 @@ public class SQLTable {
 
 
 
-    public static String TABLE_CREATE_QUERY = "INSERT INTO `" + TABLE_PROFILE + "` (`UUID`,`Name`, `IP`, `Total Bans`, `Total Mutes`, `Total Temp Bans`, `Total Time Online`, `Last Ban Date`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    public static String TABLE_CREATE_QUERY = "INSERT INTO `" + TABLE_PROFILE + "` (`UUID`,`Name`, `IP`, `Total Bans`, `Total Mutes`, `Total Temp Bans`, `Total Time Online`, `Last Ban Date`, `Total Debuffs`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     public static String TABLE_LOAD_QUERY = "SELECT * FROM `" + TABLE_PROFILE + "`  WHERE `UUID`= ?";
+    public static String TABLE_INSERT_QUERY_BANS = "INSERT INTO `" + TABLE_BANS + "` (`UUID`, `Name`, `Expires in`, `Banned by`, `Banned on`, `Reason`, `Banned`, `wasOffline`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
 
     public static int STARTER_TOTALBANS = 0;
     public static int STARTER_TOTALMUTES = 0;
