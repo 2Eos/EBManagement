@@ -1,7 +1,5 @@
 package eos.gir.ebmanagement.library.MySQL;
 
-
-
 public class SQLTable {
 
     public static String TABLE_PROFILE = "profile";
