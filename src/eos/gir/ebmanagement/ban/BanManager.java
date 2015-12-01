@@ -11,6 +11,7 @@ public class BanManager {
         ban.setPermanent(true);
         ban.setLogging(true);
         ban.setReason(reason);
+
     }
 
     public static void createTempBan(OfflinePlayer player, String name, String reason, int time) {
@@ -20,6 +21,7 @@ public class BanManager {
         ban.setReason(reason);
         ban.setTime(time);
     }
+
 
     
 
