@@ -68,7 +68,7 @@ public class MySQLStorage {
                     statement.execute(SQLTable.TABLE_QUERY_MUTES);
                     statement.execute(SQLTable.TABLE_QUERY_TEMPBANS);
                     statement.execute(SQLTable.TABLE_QUERY_IPS);
-                    statement.execute(SQLTable.TABLE_DEBUFFS);
+                    statement.execute(SQLTable.TABLE_QUERY_DEBUFFS);
 
                     statement.close();
                     Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "[EBManagement] Created the following tables: " +
