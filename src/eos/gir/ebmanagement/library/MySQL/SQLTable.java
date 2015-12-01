@@ -22,5 +22,5 @@ public class SQLTable {
     public static int STARTER_TOTALMUTES = 0;
     public static int STARTER_TOTALTEMPBANS = 0;
     public static int STARTER_TOTAlTIMEONLINE = 0;
-    public static String STARTER_LASTBANDATE = "";
+    public static String STARTER_LASTBANDATE = "0";
 }
