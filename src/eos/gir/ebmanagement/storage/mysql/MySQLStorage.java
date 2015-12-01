@@ -59,7 +59,8 @@ public class MySQLStorage {
                             SQLTable.TABLE_BANS + ", " +
                             SQLTable.TABLE_MUTES + ", " +
                             SQLTable.TABLE_TEMPBANS + ", " +
-                            SQLTable.TABLE_IPS);
+                            SQLTable.TABLE_IPS + ", " +
+                            SQLTable.TABLE_DEBUFFS);
                 } else {
 
                     statement.execute(SQLTable.TABLE_QUERY_PROFILE);
@@ -67,16 +68,16 @@ public class MySQLStorage {
                     statement.execute(SQLTable.TABLE_QUERY_MUTES);
                     statement.execute(SQLTable.TABLE_QUERY_TEMPBANS);
                     statement.execute(SQLTable.TABLE_QUERY_IPS);
+                    statement.execute(SQLTable.TABLE_DEBUFFS);
 
                     statement.close();
-                    sql.closeConnection();
-
                     Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "[EBManagement] Created the following tables: " +
                             SQLTable.TABLE_PROFILE + ", " +
                             SQLTable.TABLE_BANS + ", " +
                             SQLTable.TABLE_MUTES + ", " +
                             SQLTable.TABLE_TEMPBANS + ", " +
-                            SQLTable.TABLE_IPS);
+                            SQLTable.TABLE_IPS + ", " +
+                            SQLTable.TABLE_DEBUFFS);
                 }
 
             } catch (Exception e) {
@@ -105,7 +106,6 @@ public class MySQLStorage {
         String UUID = player.getUniqueId().toString();
         String NAME = player.getName();
         String IPADDRESS = player.getAddress().getAddress().getHostAddress();
-
         try {
             ResultSet query = sql.querySQL("SELECT * FROM `" + SQLTable.TABLE_PROFILE + "`  WHERE `UUID`= '" + UUID + "';");
             PreparedStatement load = c.prepareStatement(SQLTable.TABLE_LOAD_QUERY);
@@ -113,6 +113,8 @@ public class MySQLStorage {
 
             if ( query.next() ) {
                 load.setString(1, UUID);
+                load.close();
+                query.close();
             } else {
                 create.setString(1, UUID);
                 create.setString(2, NAME);
@@ -121,7 +123,12 @@ public class MySQLStorage {
                 create.setInt(5, SQLTable.STARTER_TOTALMUTES);
                 create.setInt(6, SQLTable.STARTER_TOTALTEMPBANS);
                 create.setInt(7, SQLTable.STARTER_TOTAlTIMEONLINE);
-                create.setString(8, SQLTable.STARTER_LASTBANDATE);
+                create.setInt(8, SQLTable.STARTER_TOTAlDEBUFFS);
+                create.setString(9, SQLTable.STARTER_LASTBANDATE);
+
+                create.executeUpdate();
+                create.close();
+                query.close();
             }
         }   catch (Exception e)
         {
