@@ -5,8 +5,10 @@ import eos.gir.ebmanagement.library.MySQL.MySQL;
 import eos.gir.ebmanagement.library.MySQL.SQLTable;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 
 import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -99,7 +101,32 @@ public class MySQLStorage {
     }
 
 
-    public void generateProfile() {
+    public void generateProfile(Player player) {
+        String UUID = player.getUniqueId().toString();
+        String NAME = player.getName();
+        String IPADDRESS = player.getAddress().getAddress().getHostAddress();
+
+        try {
+            ResultSet query = sql.querySQL("SELECT * FROM `" + SQLTable.TABLE_PROFILE + "`  WHERE `UUID`= '" + UUID + "';");
+            PreparedStatement load = c.prepareStatement(SQLTable.TABLE_LOAD_QUERY);
+            PreparedStatement create = c.prepareStatement(SQLTable.TABLE_CREATE_QUERY);
+
+            if ( query.next() ) {
+                load.setString(1, UUID);
+            } else {
+                create.setString(1, UUID);
+                create.setString(2, NAME);
+                create.setString(3, IPADDRESS);
+                create.setInt(4, SQLTable.STARTER_TOTALBANS);
+                create.setInt(5, SQLTable.STARTER_TOTALMUTES);
+                create.setInt(6, SQLTable.STARTER_TOTALTEMPBANS);
+                create.setInt(7, SQLTable.STARTER_TOTAlTIMEONLINE);
+                create.setString(8, SQLTable.STARTER_LASTBANDATE);
+            }
+        }   catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
     }
 
