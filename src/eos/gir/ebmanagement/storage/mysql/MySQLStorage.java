@@ -110,12 +110,14 @@ public class MySQLStorage {
             ResultSet query = sql.querySQL("SELECT * FROM `" + SQLTable.TABLE_PROFILE + "`  WHERE `UUID`= '" + UUID + "';");
             PreparedStatement load = c.prepareStatement(SQLTable.TABLE_LOAD_QUERY);
             PreparedStatement create = c.prepareStatement(SQLTable.TABLE_CREATE_QUERY);
+//    public static String TABLE_CREATE_QUERY = "INSERT INTO `" + TABLE_PROFILE + "` (`UUID`,`Name`, `IP`, `Total Bans`, `Total Mutes`, `Total Temp Bans`, `Total Time Online`, `Last Ban Date`, `Total Debuffs`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
             if ( query.next() ) {
                 load.setString(1, UUID);
                 load.close();
                 query.close();
             } else {
+
                 create.setString(1, UUID);
                 create.setString(2, NAME);
                 create.setString(3, IPADDRESS);
@@ -123,8 +125,8 @@ public class MySQLStorage {
                 create.setInt(5, SQLTable.STARTER_TOTALMUTES);
                 create.setInt(6, SQLTable.STARTER_TOTALTEMPBANS);
                 create.setInt(7, SQLTable.STARTER_TOTAlTIMEONLINE);
-                create.setInt(8, SQLTable.STARTER_TOTAlDEBUFFS);
-                create.setString(9, SQLTable.STARTER_LASTBANDATE);
+                create.setString(8, SQLTable.STARTER_LASTBANDATE);
+                create.setInt(9, SQLTable.STARTER_TOTAlDEBUFFS);
 
                 create.executeUpdate();
                 create.close();
